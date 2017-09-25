@@ -1,34 +1,26 @@
-var card_text_count = 0;
+var activitiesContainer = new Vue({
+    el: '#activity-container',
+    data: {
+        activities: []
+    }
+});
 
-function addActivity() {
-    var activityName = document.getElementById('activityNameInput').value;
-    var time = moment().format('HH:mm:ss');
-    var id = 'card-text-' + card_text_count;
-    var card = d3.select('#activity-container')
-        .append('div')
-        .attr('class', 'card')
-        .append('div')
-        .attr('class', 'card-body');
-
-    card.append('h5')
-        .attr('class', 'card-title')
-        .text(activityName)
-        .attr('data-toggle', 'collapse')
-        .attr('data-target', '#' + id)
-        .attr('aria-expanded', 'false')
-        .attr('aria-controls', id);
-
-    card.append('h6')
-        .attr('class', 'card-subtitle mb-2 text-muted')
-        .text(time + ' - Present');
-
-    card.append('p')
-        .attr('class', 'collapse')
-        .attr('id', id)
-        .text('Lorem dorsum ilires sot ipo catus mchecntus sipalis aarus gettus faternus. Sit Dolores perus.');
-
-    card_text_count = card_text_count + 1;
-
-    document.getElementById('activityNameInput').value = '';
-
-}
+var addActivityForm = new Vue({
+    el: '#add-activity-form',
+    data: {
+        activityName: ''
+    },
+    methods: {
+        addActivity: function() {
+        		var activityName = this.activityName;
+            setTimeout(function() {
+                activitiesContainer.activities.unshift({
+                    title: activityName,
+                    timeinterval: moment().format('HH:mm') + ' - Present',
+                    description: 'Lorem impsumdolores sit on tus. Eta us peru kamisu sit misu lor. Put ron lori annaku puksa imprum elimbu.'
+                })
+            }, 100);
+            this.activityName = '';
+        }
+    }
+})

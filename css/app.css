@@ -1,11 +1,11 @@
-nav {
-	margin-bottom: 1rem;
+#main-container {
+	padding-top: 70px;
 }
 
-#today-activities-form {
-	margin-bottom: 1rem;
+#add-activity-form {
+    margin-bottom: 1rem;
 }
 
 .card {
-	margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
