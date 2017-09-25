@@ -8,15 +8,15 @@ function addActivity() {
         .append('div')
         .attr('class', 'card')
         .append('div')
-        .attr('class', 'card-body')
+        .attr('class', 'card-body');
+
+    card.append('h5')
+        .attr('class', 'card-title')
+        .text(activityName)
         .attr('data-toggle', 'collapse')
         .attr('data-target', '#' + id)
         .attr('aria-expanded', 'false')
         .attr('aria-controls', id);
-
-    card.append('h5')
-        .attr('class', 'card-title')
-        .text(activityName);
 
     card.append('h6')
         .attr('class', 'card-subtitle mb-2 text-muted')
