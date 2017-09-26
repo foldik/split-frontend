@@ -35,12 +35,16 @@
             </div>
             <button type="button" class="btn btn-primary" v-on:click="addActivity">Add</button>
         </form>
-        <div id="activity-container">
-            <div v-for="activity in activities" class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{activity.title}}</h5>
+        <div id="activity-container" role="tablist">
+            <div v-for="(activity, index) in activities" class="card">
+                <div class="card-header" role="tab" v-bind:id="'card-header-' + index">
+                    <h5 v-bind:href="'#card-body-' + index" class="card-title h5" data-toggle="collapse" aria-expanded="false" v-bind:aria-controls="'card-body-' + index">{{activity.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{activity.timeinterval}}</h6>
-                    <p class="card-text">{{activity.description}}</p>
+                </div>
+                <div v-bind:id="'card-body-' + index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'card-body-' + index" data-parent="#activity-container">
+                    <div class="card-body">
+                        <p class="card-text">{{activity.description}}</p>
+                    </div>
                 </div>
             </div>
         </div>
