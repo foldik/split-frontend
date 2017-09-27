@@ -37,6 +37,11 @@
         </form>
         <div id="activity_container" role="tablist">
             <activity-card v-for="(activity, index) in activities" :key="activity.title + activity.timeinterval" :activity="activity" :card-id="index" :card-parent="'activity_container'"></activity-card>
+            <div>
+                <pre>
+                    {{$data |json }}
+                </pre>
+            </div>
         </div>
     </div>
     <!-- scripts -->
