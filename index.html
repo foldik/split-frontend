@@ -35,17 +35,12 @@
             </div>
             <button type="button" class="btn btn-primary" v-on:click="addActivity">Add</button>
         </form>
-        <div id="activity-container" role="tablist">
-            <div v-for="(activity, index) in activities" class="card">
-                <div class="card-header" role="tab" v-bind:id="'card-header-' + index">
-                    <h5 v-bind:href="'#card-body-' + index" class="card-title h5" data-toggle="collapse" aria-expanded="false" v-bind:aria-controls="'card-body-' + index">{{activity.title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{activity.timeinterval}}</h6>
-                </div>
-                <div v-bind:id="'card-body-' + index" class="collapse" role="tabpanel" v-bind:aria-labelledby="'card-body-' + index" data-parent="#activity-container">
-                    <div class="card-body">
-                        <p class="card-text">{{activity.description}}</p>
-                    </div>
-                </div>
+        <div id="activity_container" role="tablist">
+            <activity-card v-for="(activity, index) in activities" :key="activity.title + activity.timeinterval" :activity="activity" :card-id="index" :card-parent="'activity_container'"></activity-card>
+            <div>
+                <pre>
+                    {{$data |json }}
+                </pre>
             </div>
         </div>
     </div>
@@ -56,6 +51,8 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="lib/vue.min.js"></script>
+    <script src="js/editable-component.js"></script>
+    <script src="js/activity-card-component.js"></script>
     <script src="js/app.js"></script>
 </body>
 

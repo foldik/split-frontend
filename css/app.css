@@ -9,3 +9,7 @@
 .card {
     margin-bottom: 0.5rem;
 }
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}

@@ -1,5 +1,5 @@
 var activitiesContainer = new Vue({
-    el: '#activity-container',
+    el: '#activity_container',
     data: {
         activities: []
     }
@@ -12,14 +12,12 @@ var addActivityForm = new Vue({
     },
     methods: {
         addActivity: function() {
-        		var activityName = this.activityName;
-            setTimeout(function() {
-                activitiesContainer.activities.unshift({
-                    title: activityName,
-                    timeinterval: moment().format('HH:mm') + ' - Present',
-                    description: 'Lorem impsumdolores sit on tus. Eta us peru kamisu sit misu lor. Put ron lori annaku puksa imprum elimbu.'
-                })
-            }, 100);
+            var activityName = this.activityName;
+            activitiesContainer.activities.unshift({
+                title: activityName,
+                timeinterval: moment().format('HH:mm') + ' - Present',
+                description: 'Lorem impsumdolores sit on tus. Eta us peru kamisu sit misu lor. Put ron lori annaku puksa imprum elimbu.'
+            });
             this.activityName = '';
         }
     }
